@@ -1,4 +1,4 @@
-name: Telegram Bot Core .NET package
+name: Telegram Bot Core .NET Middleware Package
 
 on:
   push:
@@ -9,22 +9,23 @@ jobs:
 
     env:
       BUILD_CONFIG: "Release"
-      SOLUTION: "src/SkyNeg.Telegram.BotCore.Web.sln"
-      PROJECT: "src/SkyNeg.Telegram.BotCore.Web/SkyNeg.Telegram.BotCore.Web.csproj"
+      SOLUTION: "src/SkyNeg.Telegram.BotCore.Http.sln"
+      PROJECT: "src/SkyNeg.Telegram.BotCore.Http/SkyNeg.Telegram.BotCore.Http.csproj"
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.1.1
+      uses: NuGet/setup-nuget@v2
 
     - name: Restore dependencies
       run: nuget restore $SOLUTION
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3.0.3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
@@ -35,6 +36,6 @@ jobs:
       run: dotnet pack $PROJECT --configuration $BUILD_CONFIG
 
     - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push src/SkyNeg.Telegram.BotCore.Web/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+      run: dotnet nuget push src/SkyNeg.Telegram.BotCore.Http/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
       env:
-        PUBLISHER_TOKEN: ${{secrets.NUGET_ORG_PUBLISHER_TOKEN}}
+        PUBLISHER_TOKEN: ${{secrets.PUBLISHER_TOKEN}}
