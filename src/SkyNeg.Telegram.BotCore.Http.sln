@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyNeg.Telegram.BotCore.Http", "SkyNeg.Telegram.BotCore.Http\SkyNeg.Telegram.BotCore.Http.csproj", "{6DF4E757-6E63-45E2-A90F-C86F8ED67B12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionData", "SolutionData", "{E2EF337A-8859-4CE6-80E5-BE590359EB62}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyNeg.Telegram.BotCore.ExampleWebHookBot", "SkyNeg.Telegram.BotCore.ExampleWebHookBot\SkyNeg.Telegram.BotCore.ExampleWebHookBot.csproj", "{BBC543C1-AB9D-407C-8E51-0B94D4AEAAA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DF4E757-6E63-45E2-A90F-C86F8ED67B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF4E757-6E63-45E2-A90F-C86F8ED67B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF4E757-6E63-45E2-A90F-C86F8ED67B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF4E757-6E63-45E2-A90F-C86F8ED67B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC543C1-AB9D-407C-8E51-0B94D4AEAAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC543C1-AB9D-407C-8E51-0B94D4AEAAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC543C1-AB9D-407C-8E51-0B94D4AEAAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC543C1-AB9D-407C-8E51-0B94D4AEAAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C11B5FC0-F770-4F1D-984C-E136C18EC92E}
+	EndGlobalSection
+EndGlobal
