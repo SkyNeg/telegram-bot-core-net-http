@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using Microsoft.Extensions.Primitives;
 using SkyNeg.Telegram.Bot.Abstraction;
+using System.Text.Json;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 
 namespace SkyNeg.Telegram.BotCore.Web
@@ -43,11 +44,11 @@ namespace SkyNeg.Telegram.BotCore.Web
                     data = await reader.ReadToEndAsync();
                 }
 
-                update = JsonConvert.DeserializeObject<Update>(data);
+                update = JsonSerializer.Deserialize<Update>(data, JsonBotAPI.Options);
                 if (update != null)
                 {
                     var updateResponse = await _botService.HandleUpdateAsync(update, httpContext.RequestAborted);
-                    var responseData = System.Text.Json.JsonSerializer.Serialize(updateResponse);
+                    var responseData = JsonSerializer.Serialize(updateResponse, JsonBotAPI.Options);
                     httpContext.Response.StatusCode = 200;
                     await httpContext.Response.WriteAsJsonAsync(responseData, httpContext.RequestAborted);
                 }
