@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
-#if NET7_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
-#endif
 
 namespace SkyNeg.Telegram.BotCore.Web
 {
@@ -10,11 +8,7 @@ namespace SkyNeg.Telegram.BotCore.Web
     {
         private const string DefaultDisplayName = "Telegram Bot";
 
-#if NET7_0_OR_GREATER
         public static IEndpointConventionBuilder MapTelegramBotWebhook(this IEndpointRouteBuilder endpoints, [StringSyntax("Route")] string pattern)
-#else
-        public static IEndpointConventionBuilder MapTelegramBotWebhook(this IEndpointRouteBuilder endpoints, string pattern)
-#endif
         {
             ArgumentNullException.ThrowIfNull(endpoints);
 
@@ -28,6 +22,7 @@ namespace SkyNeg.Telegram.BotCore.Web
                .Build();
 
             return endpoints.MapPost(pattern, pipeline).WithDisplayName(DefaultDisplayName);
+            //endpoints.MapPost(pattern, (Update update) => HandleUpdate(update));
         }
     }
 }

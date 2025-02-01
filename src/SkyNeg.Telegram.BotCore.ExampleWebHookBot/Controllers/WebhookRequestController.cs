@@ -21,7 +21,7 @@ namespace SkyNeg.Telegram.BotCore.WebHookBotSample.Controllers
             var callbackData = new ClearCacheRequest() { Type = null, Text = "qwe", }.ToCallbackData();
             sw.Stop();
             var message = $"{callbackData} {{{sw.ElapsedTicks} ticks}}";
-            await Client.SendTextMessageAsync(chatId: context.Chat.Id, message, cancellationToken: cancellationToken);
+            await Client.SendMessage(chatId: context.Chat.Id, message, cancellationToken: cancellationToken);
 
             return RequestResult.Completed;
         }
